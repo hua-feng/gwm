@@ -13,5 +13,20 @@ allprojects {
     repositories {
         mavenLocal()
     }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
 
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'maven'
+apply plugin: 'eclipse'
+apply plugin: 'war'
+war {
+    enabled = true
+    //包名称
+    archiveName "gwm-web.${extension}"
+    //包存放路径
+    destinationDir = file("${rootProject.projectDir}/build/war")
 }
